@@ -8,9 +8,6 @@ var j = 20;
 var b = document.getElementById("butt");
 
 
-b.addEventListener("click", removeItem);
-
-
 //assign an anonymous fxn to a var
 var f = function(x) {
     var j=30;
@@ -50,7 +47,6 @@ var addItem = function(text) {
 
 //remove specified item from list
 var removeItem = function(n) {
-    alert("hi");
     var listitems = document.getElementsByTagName('li');
     listitems[n].remove();
 };
@@ -73,3 +69,6 @@ var o = { 'name' : 'Thluffy',
 	      return x+30;
 	  }
 	};
+
+
+b.addEventListener("click", removeItem);
