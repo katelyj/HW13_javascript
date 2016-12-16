@@ -5,6 +5,10 @@ console.log("AYO");
 
 var i = "hello";
 var j = 20;
+var b = document.getElementById("butt");
+
+
+b.addEventListener("click", removeItem);
 
 
 //assign an anonymous fxn to a var
@@ -35,7 +39,7 @@ var factR = function(n) {
 };
 
 
-//add list item 
+//add list item
 var addItem = function(text) {
     var list = document.getElementById("thelist");
     var newitem = document.createElement("li");
@@ -46,6 +50,7 @@ var addItem = function(text) {
 
 //remove specified item from list
 var removeItem = function(n) {
+    alert("hi");
     var listitems = document.getElementsByTagName('li');
     listitems[n].remove();
 };
