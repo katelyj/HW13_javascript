@@ -3,72 +3,29 @@
 console.log("AYO");
 
 
-var i = "hello";
-var j = 20;
-var b = document.getElementById("butt");
+var button = document.getElementById("butt");
+var list = document.getElementById("thelist");
+var listElements = document.getElementsByTagName("li");
+var heading = document.getElementById("h");
 
 
-//assign an anonymous fxn to a var
-var f = function(x) {
-    var j=30;
-    return j+x;
+var removeItem = function(e) {
+    this.remove();
 };
 
 
-//(define fact (lambda (n) ...)
-var fact = function(n) {
-    var prod=1;
-    for ( ; n > 1 ; n--){
-	prod = prod * n;
-    }
-    return prod;
+var mouseOver = function(e) {
+    heading.innerHTML = this.innerHTML;
 };
 
 
-//(define fact (lambda (n) ...)
-var factR = function(n) {
-    if ( n<=1 ) {
-	return 1;
-    }
-    else {
-	return n * factR(n-1);
-    }
+var mouseOut = function(e) {
+    heading.innerHTML = "Hello World";
 };
 
 
-//add list item
-var addItem = function(text) {
-    var list = document.getElementById("thelist");
-    var newitem = document.createElement("li");
-    newitem.innerHTML = text;
-    list.appendChild(newitem);
+for (i = 0; i < listElements.length; i++) {
+  listElements[i].addEventListener("click", removeItem);
+  listElements[i].addEventListener("mouseover", mouseOver);
+  listElements[i].addEventListener("mouseout", mouseOut);
 };
-
-
-//remove specified item from list
-var removeItem = function(n) {
-    var listitems = document.getElementsByTagName('li');
-    listitems[n].remove();
-};
-
-
-var red = function() {
-    var items = document.getElementsByTagName("li");
-    for(var i = 0; i < items.length; i++) {
-	items[i].classList.add('red');
-    }
-};
-
-
-//instantiate an object
-var o = { 'name' : 'Thluffy',
-	  age : 15,
-	  items : [10, 20, 30, 40],
-	  morestuff : {a : 1, b : 'ayo'},
-	  func : function(x) {
-	      return x+30;
-	  }
-	};
-
-
-b.addEventListener("click", removeItem);
