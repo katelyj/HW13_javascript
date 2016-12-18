@@ -40,7 +40,7 @@ var addItem = function() {
 
 var fib = function(n) {
     if (n <= 1){
-	     return n;
+	     return 1;
     }
     else {
 	     return fib(n - 1) + fib(n - 2);
@@ -49,7 +49,7 @@ var fib = function(n) {
 
 
 var addFib = function() {
-    var n = document.createElement("li")
+    var n = document.createElement("li");
     var len = list2.getElementsByTagName("li").length;
 
     if (len == 0) {
@@ -59,7 +59,7 @@ var addFib = function() {
         n.innerHTML = fib(len);
     }
 
-    n.addEventListener("click", removeItem);
+    //n.addEventListener("click", removeItem);
     n.addEventListener("mouseover", mouseOver);
     n.addEventListener("mouseout", mouseOut);
 	  list2.appendChild(n);
@@ -67,9 +67,10 @@ var addFib = function() {
 
 
 for (i = 0; i < listElements.length; i++) {
-    listElements[i].addEventListener("click", removeItem);
-    listElements[i].addEventListener("mouseover", mouseOver);
-    listElements[i].addEventListener("mouseout", mouseOut);
+    var el = listElements[i];
+    el.addEventListener("click", removeItem);
+    el.addEventListener("mouseover", mouseOver);
+    el.addEventListener("mouseout", mouseOut);
 };
 
 
